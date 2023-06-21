@@ -163,55 +163,43 @@ include "username.php";
         ?>
       </div>
       <!-- popup window Lietotajs-->
-            <div id="popup" class="fixed top-0 left-0 w-full h-full bg-gray-600 bg-opacity-50 hidden">
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded">
-          <div class="flex flex-col justify-center text-center">
-            <!-- login form -->
-            <form id="logForm" method="POST">
-              <div id="myDIV" style="display:none">
-                <div class="flex flex-row justify-between mx-1">
-                  <h1 class="text-xl font-bold mb-2">PIESLĒGTIES</h1>
-                  <button id="close-popup-button" class="justify-end hover:text-red ease-in duration-200"><i
-                      class="fa-solid fa-xmark fa-2x"></i></button>
+        <div id="popup" class="fixed top-0 left-0 w-full h-full bg-gray-600 bg-opacity-50 hidden">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded">
+                <div class="flex flex-col justify-center text-center">
+                    <!-- login form -->
+                    <form id="logForm" method="POST">
+                        <div id="myDIV" style="display:none">
+                            <div class="flex flex-row justify-between mx-1">
+                                <h1 class="text-xl font-bold mb-2">PIESLĒGTIES</h1>
+                                <button id="close-popup-button" class="justify-end hover:text-red ease-in duration-200"><i class="fa-solid fa-xmark fa-2x"></i></button>
+                            </div>
+                            <input type="email" name="gmail2" id="login-email" placeholder="example@gmail.com" class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
+                            <input type="password" name="password2" id="login-password" placeholder="Parole..." class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
+                            <button onclick="getValue('select.php', event, 'logForm')" class="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mb-2 w-[334px]">Login</button>
+                        </div>
+                    </form>
+                    <!-- registration form -->
+                    <form id="regForm" autocomplete="off" method="POST">
+                        <div id="myDIVs" style="display:block">
+                            <div class="flex flex-row justify-between mx-1">
+                                <h1 class="text-xl font-bold mb-2">IZVEIDOT PROFILU</h1>
+                                <button id="close-popup-button" class="justify-end hover:text-red ease-in duration-200"><i class="fa-solid fa-xmark fa-2x"></i></button>
+                            </div>
+                            <div class="flex flex-row">
+                                <input type="text" name="vards" id="reg-name" placeholder="Vārds....  " id="vards" class="mb-2 mr-[2px] px-3 py-2 outline-none rounded-md w-[165px]">
+                                <input type="text" name="uzvards" id="reg-surname" placeholder="Uzvārds..." id="uzvards" class="mb-2 ml-[2px] px-3 py-2 outline-none rounded-md w-[165px]">
+                            </div>
+                            <input type="email" name="gmail" id="reg-email" placeholder="example@gmail.com" id="gmail" class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
+                            <input type="password" name="password" id="reg-password" placeholder="Parole...." id="password" class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
+                            <input type="password" name="repeatpassword" id="reg-repassword" placeholder="Atkartoti parole..." id="repeatpassword" class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
+                            <button onclick="getValue1('insert.php', event, 'regForm')" class="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mb-2 w-[334px]">Register</button>
+                        </div>
+                        <button id="btn" onclick="myFunction()" name="Login" class="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mb-2 w-[334px]">Login</button>
+                        <p id="msg"></p>
+                    </form>
                 </div>
-                <input type="email" name="gmail2" id="login-email" placeholder="example@gmail.com"
-                  class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
-                <input type="password" name="password2" id="login-password" placeholder="Parole..."
-                  class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
-                <button onclick="getValue('select.php', event, 'logForm')"
-                  class="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mb-2 w-[334px]">Login</button>
-              </div>
-            </form>
-            <!-- registration form -->
-            <form id="regForm" autocomplete="off" method="POST">
-              <div id="myDIVs" style="display:block">
-                <div class="flex flex-row justify-between mx-1">
-                  <h1 class="text-xl font-bold mb-2">IZVEIDOT PROFILU</h1>
-                  <button id="close-popup-button" class="justify-end hover:text-red ease-in duration-200"><i
-                      class="fa-solid fa-xmark fa-2x"></i></button>
-                </div>
-                <div class="flex flex-row">
-                  <input type="text" name="vards" id="reg-name" placeholder="Vārds....  " id="vards"
-                    class="mb-2 mr-[2px] px-3 py-2 outline-none rounded-md">
-                  <input type="text" name="uzvards" id="reg-surname" placeholder="Uzvārds..." id="uzvards"
-                    class="mb-2 ml-[2px] px-3 py-2 outline-none rounded-md">
-                </div>
-                <input type="email" name="gmail" id="reg-email" placeholder="example@gmail.com" id="gmail"
-                  class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
-                <input type="password" name="password" id="reg-password" placeholder="Parole...." id="password"
-                  class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
-                <input type="password" name="repeatpassword" id="reg-repassword" placeholder="Atkartoti parole..." id="repeatpassword"
-                  class="block mb-2 px-3 py-2 outline-none rounded-md w-[334px]">
-                <button onclick="getValue1('insert.php', event, 'regForm')"
-                  class="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mb-2 w-[334px]">Register</button>
-              </div>
-              <button id="btn" onclick="myFunction()" name="Login"
-              class="bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded mb-2 w-[334px]">Login</button>
-              <p id="msg"></p>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
   </nav>
   <!-- Categorys nav -->
